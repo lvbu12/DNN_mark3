@@ -1,4 +1,4 @@
-#encoding=utf-8
+#_*_ coding=utf-8 _*_
 import numpy as np
 import os, sys
 from sklearn.datasets import make_moons,load_digits
@@ -348,34 +348,6 @@ def predict(X, parameter):
     # accuracy = np.mean(Y==Y_hat)
     return Y_hat
 
-def draw_boundary(X, Y, param):
-    """
-
-    :param X:
-    :param Y:
-    :param param:
-    :return:
-    """
-    # x_min, x_max = X[0,:].min() - 1, X[0,:].max() + 1
-    # y_min, y_max = X[1,:].min() - 1, X[1,:].max() + 1
-    # xx, yy = np.meshgrid(np.arange(x_min, x_max),
-    #                      np.arange(y_min, y_max))
-
-    # here "model" is your model's prediction (classification) function
-    # Z = model(np.c_[xx.ravel(), yy.ravel()])
-    # Z = predict(np.c_[xx.ravel(), yy.ravel()], param)
-    Y_hat = predict(X, param)
-    # Put the result into a color plot
-    # Z = Z.reshape(xx.shape)
-    p1 = plt.subplot(121)
-    p1.scatter(X[0, :], X[1, :], c=Y, cmap=plt.cm.Paired)
-    p1.legend("True distribution")
-    p2 = plt.subplot(122)
-    p2.scatter(X[0, :], X[1, :], c=Y_hat, cmap=plt.cm.Paired)
-    p2.legend("The prediction")
-    # plt.axis('off')
-    # Plot also the training points
-    plt.show()
 
 if __name__ == "__main__":
     X_train, Y_train, X_test, Y_test = get_data_from_sklearn(n_class=10)
